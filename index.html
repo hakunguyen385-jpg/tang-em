@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Điều Ước Trung Thu 🌕✨</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Family Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS cho không khí lãng mạn */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            background-color: #050515;
+            color: #fff;
+            user-select: none;
+        }
+
+        .font-serif-romantic {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .font-great-vibes {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Gradient Nền Đêm Trung Thu */
+        .night-sky {
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        }
+
+        /* Phong cách Tờ Giấy Điều Ước Cổ Điển */
+        .parchment {
+            background: #fdf6e2;
+            background-image: radial-gradient(#e0c9a6 1px, transparent 0);
+            background-size: 16px 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(253, 216, 53, 0.2);
+            border: 2px solid #c8a870;
+            color: #4a3525;
+            position: relative;
+        }
+
+        .parchment::before, .parchment::after {
+            content: '';
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+        }
+        .parchment::before { top: 5px; }
+        .parchment::after { bottom: 5px; }
+
+        /* Hiệu ứng hào quang cho đèn hoa đăng đặc biệt */
+        .glow-lantern {
+            box-shadow: 0 0 30px #ff9d00, 0 0 60px #ff6c00, 0 0 90px #ff3c00;
+        }
+
+        /* Animation lắc nhẹ */
+        @keyframes sway {
+            0%, 100% { transform: rotate(-2deg) translateY(0px); }
+            50% { transform: rotate(2deg) translateY(-8px); }
+        }
+
+        .animate-sway {
+            animation: sway 4s ease-in-out infinite;
+        }
+
+        /* Glowing Text */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 223, 0, 0.8), 0 0 20px rgba(255, 153, 0, 0.6);
+        }
+
+        /* Custom Scrollbar cho Bức Thư */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 215, 0, 0.4);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 215, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="relative w-screen h-screen overflow-hidden night-sky flex items-center justify-center">
+
+    <!-- Canvas Bầu trời & Đèn Hoa Đăng -->
+    <canvas id="skyCanvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+
+    <!-- Mặt trăng rực rỡ -->
+    <div class="absolute top-8 right-8 md:top-12 md:right-16 w-28 h-28 md:w-40 md:h-40 rounded-full bg-amber-100 shadow-[0_0_50px_rgba(255,235,150,0.9),0_0_100px_rgba(255,200,80,0.6)] z-0 pointer-events-none opacity-90 transition-all duration-1000">
+        <div class="w-full h-full rounded-full opacity-20 bg-[radial-gradient(#887050_20%,transparent_20%)] bg-[length:16px_16px]"></div>
+    </div>
+
+    <!-- Nút Bật/Tắt Âm Nhạc Lãng Mạn -->
+    <button id="musicBtn" onclick="toggleAudio()" class="fixed top-5 left-5 z-50 bg-black/40 hover:bg-black/60 backdrop-blur-md text-amber-200 border border-amber-500/40 px-4 py-2 rounded-full flex items-center space-x-2 transition-all duration-300 shadow-lg text-sm">
+        <span id="musicIcon">🎵</span>
+        <span id="musicText">Phát Nhạc Dịu Êm</span>
+    </button>
+
+    <!-- Container Chính -->
+    <main class="relative z-10 w-full max-w-lg px-4 flex flex-col items-center justify-center">
+
+        <!-- 1. FORM GHI ĐIỀU ƯỚC (Tờ giấy cuộn cổ điển - Tinh gọn chỉ còn ô Điều Ước) -->
+        <div id="wishPaper" class="parchment w-full rounded-2xl p-6 md:p-8 transform transition-all duration-700 animate-sway relative">
+            
+            <div class="text-center mb-5">
+                <h1 class="font-great-vibes text-4xl md:text-5xl text-amber-900 mb-1">Điều Ước Trung Thu</h1>
+                <p class="text-xs md:text-sm text-amber-800/80 italic font-serif-romantic">Hãy gửi trao ước nguyện chân thành nhất của em lên bầu trời đêm nay...</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-amber-900 mb-2 text-center">✨ Viết điều ước của em tại đây ✨</label>
+                    <textarea id="wishContent" rows="4" placeholder="Nhập những hy vọng, mong muốn ngọt ngào cho mùa Trung Thu này..." 
+                        class="w-full px-4 py-3 rounded-xl bg-amber-50/90 border border-amber-300 text-amber-950 placeholder-amber-700/40 focus:outline-none focus:ring-2 focus:ring-amber-600/50 font-medium resize-none shadow-inner leading-relaxed"></textarea>
+                </div>
+
+                <button onclick="launchWishLantern()" 
+                    class="w-full mt-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-600 via-orange-500 to-amber-700 text-white font-bold tracking-wide shadow-lg hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center space-x-2">
+                    <span>Thả Đèn Lên Bầu Trời 🌕✨</span>
+                </button>
+            </div>
+            
+            <!-- Hoa văn trang trí góc -->
+            <div class="absolute top-2 left-2 text-amber-700/30 text-xs">🎴</div>
+            <div class="absolute top-2 right-2 text-amber-700/30 text-xs">🎴</div>
+            <div class="absolute bottom-2 left-2 text-amber-700/30 text-xs">🎴</div>
+            <div class="absolute bottom-2 right-2 text-amber-700/30 text-xs">🎴</div>
+        </div>
+
+        <!-- 2. ĐÈN KHINH KHÍ CẦU MANG ĐIỀU ƯỚC (Ẩn ban đầu) -->
+        <div id="flyingLantern" class="hidden fixed bottom-10 z-30 flex-col items-center pointer-events-none transition-all duration-1000">
+            <!-- Đèn lồng phát sáng -->
+            <div class="w-28 h-36 md:w-36 md:h-48 bg-gradient-to-t from-orange-600 via-amber-400 to-amber-200 rounded-t-full rounded-b-2xl glow-lantern flex flex-col items-center justify-between p-3 relative opacity-90 animate-pulse">
+                <div class="text-[11px] md:text-xs text-amber-900 font-bold font-cursive text-center line-clamp-3 px-1.5 bg-white/40 rounded-lg py-1 shadow-sm" id="lanternTag">
+                    Điều ước
+                </div>
+                <div class="w-6 h-6 rounded-full bg-yellow-100 shadow-[0_0_15px_#fff] mb-2 animate-ping"></div>
+            </div>
+            <div class="w-14 h-3 bg-amber-900/60 rounded-b-md -mt-1"></div>
+        </div>
+
+        <!-- 3. BỨC THƯ TÌNH LÃNG MẠN (Xuất hiện sau khi thả đèn) -->
+        <div id="loveLetterModal" class="hidden fixed inset-0 z-40 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-1000 opacity-0">
+            <div class="relative w-full max-w-lg bg-gradient-to-b from-indigo-950/90 via-purple-950/90 to-slate-950/90 border border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-[0_0_50px_rgba(255,160,0,0.3)] text-amber-100 max-h-[85vh] flex flex-col">
+                
+                <!-- Tiêu đề Thư -->
+                <div class="text-center pb-3 border-b border-amber-500/20 mb-4">
+                    <h2 class="font-great-vibes text-4xl md:text-5xl text-amber-300 text-glow">Gửi Em Yêu ❤️</h2>
+                    <p class="text-xs text-amber-200/60 italic font-serif-romantic">Trăng Rằm Tháng Tám - Đêm Ngàn Sao</p>
+                </div>
+
+                <!-- Nội dung chữ gõ -->
+                <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 my-2">
+                    <p id="typewriterText" class="font-cursive text-xl md:text-2xl leading-relaxed text-amber-100/95 whitespace-pre-line"></p>
+                </div>
+
+                <!-- Lời kết & Nút đóng -->
+                <div class="pt-4 border-t border-amber-500/20 text-center flex flex-col items-center space-y-3">
+                    <p class="font-serif-romantic italic text-xs md:text-sm text-amber-300/80">"Chúc em một mùa Trung Thu tràn ngập hạnh phúc và ấm áp bên anh!"</p>
+                    <button onclick="closeLetter()" class="px-6 py-2.5 rounded-full bg-amber-500/20 hover:bg-amber-500/40 border border-amber-400/50 text-amber-200 text-sm font-medium transition-all duration-300 shadow-md hover:scale-105">
+                        Thưởng Thức Bầu Trời Đêm 🌕
+                    </button>
+                </div>
+
+                <!-- Đốm sáng trang trí -->
+                <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-amber-400/30 blur-md"></div>
+                <div class="absolute -bottom-3 -left-3 w-8 h-8 rounded-full bg-amber-400/30 blur-md"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        /* ----------------------------------------------------
+         * 1. HỆ THỐNG ÂM NHẠC TỰ ĐỘNG (Web Audio API Synthesizer)
+         * ---------------------------------------------------- */
+        let audioCtx = null;
+        let isPlaying = false;
+        let musicalInterval = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        // Tạo giai điệu lãng mạn nhẹ nhàng
+        function playRomanticNotes() {
+            if (!isPlaying || !audioCtx) return;
+
+            const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25]; // C, D, E, G, A, C5, D5, E5
+            const note = notes[Math.floor(Math.random() * notes.length)];
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(note, audioCtx.currentTime);
+
+            // Envelope mềm mại
+            gain.gain.setValueAtTime(0, audioCtx.currentTime);
+            gain.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 0.8);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.5);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 3.6);
+        }
+
+        function toggleAudio() {
+            initAudio();
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const btnText = document.getElementById('musicText');
+            const btnIcon = document.getElementById('musicIcon');
+
+            if (isPlaying) {
+                isPlaying = false;
+                clearInterval(musicalInterval);
+                btnText.textContent = "Phát Nhạc Dịu Êm";
+                btnIcon.textContent = "🎵";
+            } else {
+                isPlaying = true;
+                playRomanticNotes();
+                musicalInterval = setInterval(playRomanticNotes, 1200);
+                btnText.textContent = "Tắt Âm Nhạc";
+                btnIcon.textContent = "🎶";
+            }
+        }
+
+        /* ----------------------------------------------------
+         * 2. CANVAS HOẠT CẢNH BẦU TRỜI & ĐÈN HOA ĐĂNG
+         * ---------------------------------------------------- */
+        const canvas = document.getElementById('skyCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initStars();
+        });
+
+        // Tạo Sao Nhấp Nháy
+        let stars = [];
+        function initStars() {
+            stars = [];
+            const count = Math.floor((width * height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    size: Math.random() * 1.5 + 0.5,
+                    alpha: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        // Đèn hoa đăng ngẫu nhiên trên trời
+        let lanterns = [];
+        const maxLanterns = 45;
+
+        function createLantern(isInitial = false) {
+            return {
+                x: Math.random() * width,
+                y: isInitial ? Math.random() * height : height + 50 + Math.random() * 100,
+                radiusX: Math.random() * 8 + 10,
+                radiusY: Math.random() * 12 + 16,
+                speedY: Math.random() * 0.6 + 0.3,
+                swaySpeed: Math.random() * 0.02 + 0.005,
+                swayAmplitude: Math.random() * 1.5 + 0.5,
+                angle: Math.random() * Math.PI * 2,
+                alpha: Math.random() * 0.5 + 0.5,
+                glowColor: Math.random() > 0.3 ? '#ff9800' : '#ff5722'
+            };
+        }
+
+        function initLanterns() {
+            lanterns = [];
+            for (let i = 0; i < maxLanterns; i++) {
+                lanterns.push(createLantern(true));
+            }
+        }
+
+        // Vẽ Đèn Lồng
+        function drawLantern(l) {
+            ctx.save();
+            ctx.globalAlpha = l.alpha;
+
+            // Hào quang tỏa sáng xung quanh
+            const gradientGlow = ctx.createRadialGradient(l.x, l.y, 2, l.x, l.y, l.radiusY * 2.5);
+            gradientGlow.addColorStop(0, l.glowColor);
+            gradientGlow.addColorStop(0.4, 'rgba(255, 152, 0, 0.3)');
+            gradientGlow.addColorStop(1, 'transparent');
+
+            ctx.fillStyle = gradientGlow;
+            ctx.beginPath();
+            ctx.arc(l.x, l.y, l.radiusY * 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Thân đèn
+            ctx.fillStyle = '#ffb74d';
+            ctx.beginPath();
+            ctx.ellipse(l.x, l.y, l.radiusX, l.radiusY, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Lõi ngọn nến sáng
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(l.x, l.y + l.radiusY * 0.3, l.radiusX * 0.3, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Đế đèn
+            ctx.fillStyle = '#5d4037';
+            ctx.fillRect(l.x - l.radiusX * 0.5, l.y + l.radiusY - 2, l.radiusX, 3);
+
+            ctx.restore();
+        }
+
+        // Loop Hoạt cảnh
+        function animateSky() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Vẽ sao
+            ctx.fillStyle = '#ffffff';
+            stars.forEach(s => {
+                s.alpha += s.speed;
+                if (s.alpha > 1 || s.alpha < 0) s.speed = -s.speed;
+                ctx.globalAlpha = Math.abs(s.alpha);
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Vẽ đèn hoa đăng
+            lanterns.forEach((l, index) => {
+                l.y -= l.speedY;
+                l.angle += l.swaySpeed;
+                l.x += Math.sin(l.angle) * l.swayAmplitude;
+
+                // Khi bay ra khỏi màn hình top, tái tạo dưới đáy
+                if (l.y < -50) {
+                    lanterns[index] = createLantern(false);
+                }
+
+                drawLantern(l);
+            });
+
+            requestAnimationFrame(animateSky);
+        }
+
+        initStars();
+        initLanterns();
+        animateSky();
+
+        /* ----------------------------------------------------
+         * 3. XỬ LÝ SỰ KIỆN GỬI ĐIỀU ƯỚC & HIỂN THỊ THƯ
+         * ---------------------------------------------------- */
+        function launchWishLantern() {
+            const wishInput = document.getElementById('wishContent').value.trim() || "Một mùa Trung Thu trọn vẹn niềm vui, luôn ấm áp và hạnh phúc!";
+
+            const wishPaper = document.getElementById('wishPaper');
+            const flyingLantern = document.getElementById('flyingLantern');
+            const lanternTag = document.getElementById('lanternTag');
+
+            // Gán dữ liệu ước nguyện vào thẻ của đèn lồng
+            lanternTag.textContent = `✨ ${wishInput}`;
+
+            // Thu nhỏ và biến mất tờ giấy
+            wishPaper.style.transform = 'scale(0) rotate(15deg)';
+            wishPaper.style.opacity = '0';
+
+            setTimeout(() => {
+                wishPaper.classList.add('hidden');
+                
+                // Hiện chiếc đèn đặc biệt bay lên
+                flyingLantern.classList.remove('hidden');
+                flyingLantern.style.left = `calc(50% - 4.5rem)`;
+                
+                // Bắt đầu hiệu ứng bay từ từ lên cao
+                let posY = 40;
+                const flyInterval = setInterval(() => {
+                    posY += 1.2;
+                    flyingLantern.style.bottom = `${posY}px`;
+
+                    if (posY > window.innerHeight * 0.6) {
+                        clearInterval(flyInterval);
+                        
+                        // Mờ dần và hiện Bức Thư Tình
+                        flyingLantern.style.opacity = '0';
+                        setTimeout(() => {
+                            flyingLantern.classList.add('hidden');
+                            showLoveLetter(wishInput);
+                        }, 800);
+                    }
+                }, 20);
+
+            }, 700);
+
+            // Bật nhạc tự động nếu chưa bật
+            if (!isPlaying) {
+                toggleAudio();
+            }
+        }
+
+        // Bức thư tình mẫu thiết kế ngọt ngào
+        function showLoveLetter(wish) {
+            const modal = document.getElementById('loveLetterModal');
+            const typewriterEl = document.getElementById('typewriterText');
+
+            const fullText = `Trung Thu này, giữa hàng ngàn ngọn đèn hoa đăng lung linh trên bầu trời đêm, ước nguyện của em chính là điều tuyệt vời nhất mà anh trân trọng...\n\n` +
+                `"Điều ước của em: ${wish}"\n\n` +
+                `Cảm ơn em đã đến và thắp sáng cuộc đời anh như ánh trăng Rằm rạng rỡ nhất. Anh mong rằng không chỉ mùa Trung Thu này, mà tất cả những mùa trăng sau, chúng mình sẽ luôn nắm chặt tay nhau cùng ngắm bầu trời đầy sao lãng mạn này.\n\n` +
+                `Yêu em thật nhiều! 💕`;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 50);
+
+            // Hiệu ứng chữ gõ (Typewriter)
+            let index = 0;
+            typewriterEl.textContent = '';
+            
+            function typeNextChar() {
+                if (index < fullText.length) {
+                    typewriterEl.textContent += fullText.charAt(index);
+                    index++;
+                    setTimeout(typeNextChar, 40);
+                }
+            }
+
+            setTimeout(typeNextChar, 500);
+        }
+
+        function closeLetter() {
+            const modal = document.getElementById('loveLetterModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
